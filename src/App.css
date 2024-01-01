@@ -18,13 +18,14 @@ header {
     background-size: cover;
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 81%);
 }
-header h2{
+
+header h2 {
     color: white;
     text-transform: uppercase;
     font-family: "Arial Black", 'sans-serif';
 }
 
-header div{
+header div {
     background-color: rgba(169, 169, 169, 0.55);
     width: 17%;
     padding: 10px;
@@ -34,13 +35,32 @@ header div{
     margin-right: auto;
 
 }
-header input{
+
+header input {
     background-color: rgba(169, 169, 169, 0);
     width: 90%;
     margin-right: 10px;
 }
 
-header input::placeholder{
+header input::placeholder {
     color: black;
     font-weight: bold;
+}
+
+.card {
+    background-color: rgba(42, 41, 41, 0.56);
+    padding: 10px;
+}
+
+.card img {
+    width: 100%;
+    min-height: 500px;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+
+.card:hover img {
+    filter: none;
+    -webkit-filter: grayscale(0);
+    transition: .5s;
 }

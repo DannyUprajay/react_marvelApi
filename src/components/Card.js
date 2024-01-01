@@ -1,19 +1,30 @@
 import React from 'react';
+import {useNavigate} from "react-router-dom";
 
-const Card = () => {
-    return(
+const Card = ({ data }) => {
+    let navigate = useNavigate()
+    return (
         <>
-        <section>
-
-            <div className={'card'}>
-                <h3 className={'text-center'}>Name</h3>
-                 <div className={'col'}>
-            <img src="https://i.pinimg.com/564x/13/f8/4c/13f84ce4291601fcac121179ca362244.jpg" alt=""/>
-        </div>
-    </div>
-        </section>
+            {data ? (
+                data.map((item, index) => {
+                    return (
+                        <section key={index}>
+                            <div className={'card'} key={item.id} onClick={()=>navigate(`/${item.id}`)}>
+                                <h3 className={'text-center'}>{item.title}</h3>
+                                <div className={'col'}>
+                                    <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
+                                        alt=""
+                                    />
+                                </div>
+                            </div>
+                        </section>
+                    );
+                })
+            ) : (
+                ''
+            )}
         </>
-    )
-}
+    );
+};
 
 export default Card;
